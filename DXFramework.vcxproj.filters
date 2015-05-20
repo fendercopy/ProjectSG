@@ -65,11 +65,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="기본설명.txt">
-      <Filter>DXFramework</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="DXCommon.h">
       <Filter>DXFramework\Common</Filter>
     </ClInclude>

@@ -103,9 +103,6 @@
     <ClCompile Include="DXinput.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="기본설명.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="DXCommon.h" />
     <ClInclude Include="WinCommon.h" />
     <ClInclude Include="DXRender.h" />
