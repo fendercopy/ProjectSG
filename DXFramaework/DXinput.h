@@ -50,14 +50,25 @@ public:
 public:
 	// 외부 키값 처리 //
 	bool _KeyDown(BYTE value);
+	bool _KeyTickDown(BYTE value);
 	bool _KeyUp(BYTE value);
+
 	void _GetMouseRelativePt(LONG* pX, LONG* pY, LONG* pZ);
+
+	bool _MouseDown(BYTE value);
+	bool _MouseTickDown(BYTE value);
+	bool _MouseUp(BYTE value);
 
 	// 키 처리 확산성 위해 //
 	friend bool KeyDown(BYTE value);
+	friend bool KeyTickDown(BYTE value);
 	friend bool KeyUp( BYTE value );
-	friend void GetMouseRelativePt(LONG* pX, LONG* pY, LONG* pZ);
 	
+	friend void GetMouseRelativePt(LONG* pX, LONG* pY, LONG* pZ);
+
+	friend bool MouseDown(BYTE value);
+	friend bool MouseTickDown(BYTE value);
+	friend bool MouseUp(BYTE value);
 
 public:
 	DXinput(void);

@@ -315,6 +315,14 @@ bool DXinput::_KeyDown( BYTE value )
 	return false;
 }
 
+bool DXinput::_KeyTickDown(BYTE value)
+{
+	if (m_KeyBoardState[value] == 0x81)
+		return true;
+
+	return false;
+}
+
 bool DXinput::_KeyUp( BYTE value )
 {
 	if( m_KeyBoardState[value] == 0x80 )
@@ -326,7 +334,6 @@ bool DXinput::_KeyUp( BYTE value )
 	return false;
 }
 
-
 void DXinput::_GetMouseRelativePt( LONG* pX, LONG* pY, LONG* pZ )
 {
 	if(pX) *pX = m_MouseState.lX;
@@ -334,11 +341,49 @@ void DXinput::_GetMouseRelativePt( LONG* pX, LONG* pY, LONG* pZ )
 	if(pZ) *pZ = m_MouseState.lZ;
 }
 
+bool DXinput::_MouseDown(BYTE value)
+{
+	if (m_MouseKeyState[value] == 0x81)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool DXinput::_MouseTickDown(BYTE value)
+{
+	if (m_MouseKeyState[value] == 0x01)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool DXinput::_MouseUp(BYTE value)
+{
+	if (m_MouseKeyState[value] == 0x80)
+	{
+		m_MouseKeyState[value] = 0x00;
+		return true;
+	}
+
+	return false;
+}
 
 // 키 처리 확산성 위해 //
 bool KeyDown(BYTE value)
 {
 	if( g_DXInput._KeyDown(value) )
+		return true;
+
+	return false;
+}
+
+bool KeyTickDown(BYTE value)
+{
+	if (g_DXInput._KeyTickDown(value))
 		return true;
 
 	return false;
@@ -355,4 +400,28 @@ bool KeyUp( BYTE value )
  void GetMouseRelativePt( LONG* pX, LONG* pY, LONG* pZ )
  {
 	g_DXInput._GetMouseRelativePt(pX, pY, pZ);
+ }
+
+ bool MouseDown(BYTE value)
+ {
+	 if (g_DXInput._MouseDown(value))
+		 return true;
+
+	 return false;
+ }
+
+ bool MouseTickDown(BYTE value)
+ {
+	 if (g_DXInput._MouseTickDown(value))
+		 return true;
+
+	 return false;
+ }
+
+ bool MouseUp(BYTE value)
+ {
+	 if (g_DXInput._MouseUp(value))
+		 return true;
+
+	 return false;
  }
