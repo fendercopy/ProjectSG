@@ -60,7 +60,7 @@ void DXRender::Update(float dTime)
 void DXRender::Render(void)
 {
 	// 오브젝트 렌더링은 아래부터..
-
+	// 실제 랜더링은 여기서부터
 
 
 
