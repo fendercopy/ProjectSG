@@ -25,9 +25,6 @@ DXinput		g_DXInput;
 //
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	// Test github
-	int iBreak = 0;
-
 	enINITERROR InitResult		= INIT_OK;
 	char		strResult[256]	= {0,};
 
