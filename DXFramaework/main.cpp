@@ -3,6 +3,12 @@
 #include "DXRender.h"
 #include "DXinput.h"
 
+#include <crtdbg.h>
+
+#ifdef _DEBUG
+#define new new(_CLIENT_BLOCK, __FILE__, __LINE__)
+#endif
+
 //////////////////////////////////////////////////////////////////////////
 // 윈도우 관련
 enINITERROR 	InitWindow(int w, int h );
@@ -25,6 +31,10 @@ DXinput		g_DXInput;
 //
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	// CRT DEBUG
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+ //	_crtBreakAlloc = 71;
+
 	enINITERROR InitResult		= INIT_OK;
 	char		strResult[256]	= {0,};
 
