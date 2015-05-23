@@ -186,6 +186,7 @@ void DXRender::DataRelease( void )
 {
 	ReleaseGrid();
 	ReleaseAxis();
+	CameraRelease();
 }
 
 
@@ -285,4 +286,9 @@ void DXRender::CameraUpdate( float dTime )
 	if( !m_pCamera ) return;
 
 	m_pCamera->UpdateCamera(dTime);
+}
+
+void DXRender::CameraRelease()
+{
+	SAFE_DELETE(m_pCamera);
 }

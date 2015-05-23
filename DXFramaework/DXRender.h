@@ -46,6 +46,7 @@ private:
 
 	void CameraInit(void);
 	void CameraUpdate( float dTime );
+	void CameraRelease();
 
 	//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━//
 	// 그리드 관련
